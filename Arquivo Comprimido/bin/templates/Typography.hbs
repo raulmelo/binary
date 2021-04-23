@@ -1,0 +1,190 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { copyClass } from './_tailwindstorybookUtils.js'
+import './_tailwindstorybook.css'
+
+<Meta title="Tailwind/Typography" />
+
+
+{{#if fontSize}} 
+# Font size
+Utilities for controlling the font size of an element.
+
+## Usage
+Control the font size of an element using the `text-{size}` utilities.
+
+```html
+<p class="text-size ...">
+  The quick brown fox jumps over the lazy dog.
+</p>
+```
+
+export const TemplateFontSize = () => {
+  const values = {{fontSize}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__list">
+          <span class="tailwindStorybook__list--label" title="Click copy class" alt="Click copy class" onClick={ () => copyClass(`__text-${item.class}`) }>
+            <input readOnly={true} id={`__text-${item.class}`} defaultValue={`text-${item.class}`} />
+          </span>
+          <i class={`text-${item.class}`}> <strong>{item.value}</strong> <br/> The quick brown fox jumped over the lazy dog.</i>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Font size">
+  <TemplateFontSize></TemplateFontSize>  
+</Story>
+
+{{/if}}
+{{#if fontWeight}} 
+# Font Weight
+Utilities for controlling the font size of an element.
+
+## Usage
+Control the font size of an element using the `font-{size}` utilities.
+
+```html
+<p class="font-size ...">
+  The quick brown fox jumps over the lazy dog.
+</p>
+```
+
+export const TemplateFontWeight = () => {
+  const values = {{fontWeight}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__list">
+          <span class="tailwindStorybook__list--label" title="Click copy class" alt="Click copy class" onClick={ () => copyClass(`font-${item.class}`) }>
+            <input readOnly={true} id={`font-${item.class}`} defaultValue={`font-${item.class}`} />
+          </span>
+          <i class={`font-${item.class}`}>  <span>{item.value}</span> <br/>  The quick brown fox jumped over the lazy dog.</i>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Font Weight">
+  <TemplateFontWeight></TemplateFontWeight>  
+</Story>
+
+{{/if}}
+
+{{#if fontFamily}} 
+# Font Family
+Utilities for controlling the font family of an element.
+
+## Usage
+Use font-sans to apply a web safe  `font-{name}`  font family:
+
+```html
+<p class="font-sans ...">
+  The quick brown fox jumps over the lazy dog.
+</p>
+```
+
+export const TemplateFontFamily = () => {
+  const values = {{fontFamily}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__list">
+          <span class="tailwindStorybook__list--label" title="Click copy class" alt="Click copy class" onClick={ () => copyClass(`font-${item.class}`) }>
+            <input readOnly={true} id={`font-${item.class}`} defaultValue={`font-${item.class}`} />
+          </span>
+          <i class={`font-${item.class}`}>  <strong>{item.value}</strong> <br/>  The quick brown fox jumped over the lazy dog.</i>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Font Family">
+  <TemplateFontFamily></TemplateFontFamily>  
+</Story>
+
+{{/if}}
+
+
+
+{{#if letterSpacing}} 
+# Letter Spacing
+Utilities for controlling the tracking (letter spacing) of an element.
+
+## Usage
+Control the letter spacing of an element using the `tracking-{name}` utilities.
+
+```html
+  <p class="tracking-widest ...">The quick brown fox ...</p>
+```
+
+export const TemplateLetterSpacing = () => {
+  const values = {{letterSpacing}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__list">
+          <span class="tailwindStorybook__list--label" title="Click copy class" alt="Click copy class" onClick={ () => copyClass(`tracking-${item.class}`) }>
+            <input readOnly={true} id={`tracking-${item.class}`} defaultValue={`tracking-${item.class}`} />
+          </span>
+          <i class={`tracking-${item.class}`}>  <strong>{item.value}</strong> <br/>  The quick brown fox jumped over the lazy dog.</i>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Letter Spacing">
+  <TemplateLetterSpacing></TemplateLetterSpacing>  
+</Story>
+
+{{/if}}
+
+{{#if lineHeight}} 
+# Line Height
+Utilities for controlling the leading (line height) of an element.
+
+```html
+  <p class="leading-none ...">Lorem ipsum dolor sit amet ...</p>
+```
+
+export const TemplateLineHeight = () => {
+  const values = {{lineHeight}}
+  const style = {
+    maxWidth: '300px'
+  }
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__list">
+          <span class="tailwindStorybook__list--label" title="Click copy class" alt="Click copy class" onClick={ () => copyClass(`leading-${item.class}`) }>
+            <input readOnly={true} id={`leading-${item.class}`} defaultValue={`leading-${item.class}`} />
+          </span>
+          <i class={`leading-${item.class}`} style={style} > <strong>{item.value}</strong> <br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</i>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Line Height">
+  <TemplateLineHeight></TemplateLineHeight>  
+</Story>
+
+{{/if}}
+
+

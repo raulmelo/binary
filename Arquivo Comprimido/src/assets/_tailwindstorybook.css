@@ -1,0 +1,85 @@
+.tailwindStorybook__list {
+  display: grid;
+  grid-template-columns: minmax(100px, 150px) auto;
+  grid-gap: 15px 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #808080;
+  padding-bottom: 15px;
+  align-items: flex-start;
+}
+
+.tailwindStorybookFontSize {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 30px;
+}
+.tailwindStorybook__list--label input {
+  font-size: 13px;
+  background: gray;
+  padding: 5px 8px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.tailwindStorybookFontSize-label > span {
+  user-select: all;
+}
+.tailwindStorybookFontSize-label > span::selection {
+      background: #f54786;
+      color: white;
+}
+.tailwindStorybookFontSize i {
+  display: block;
+}
+
+.tailwindstorybook-popup {
+  position: fixed;
+  top: 15px;
+  width: 210px;
+  background-color: #f54786;
+  padding: 14px;
+  border-radius: 5px;
+  animation: introTailwindstorybook 400ms ease both;
+  color: white;
+  z-index: 999;
+  font-size: 13px;
+  transition: all 300ms ease;
+  --tailwindstorybookShow: 0%;
+  transform: translateX(var(--tailwindstorybookShow));
+}
+
+.tailwindstorybook-popup.remove-popup {
+  --tailwindstorybookShow: 130%
+}
+
+@keyframes introTailwindstorybook {
+  from {
+    right:  -100%
+  }
+  to {
+    right: 15px;
+  }
+}
+
+
+.tailwindstorybook-example {
+  overflow: hidden;
+  margin-bottom: 16px;
+  position: relative;
+}
+.tailwindstorybook-example-content {
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  background-color: red;
+  color: white;
+}
+
+.tailwindstorybook-example-code {
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "tailwind-storybook",
+  "version": "2.0.3",
+  "description": "BETA",
+  "author": "Raul Melo <raulmelo.web@gmail.com>",
+  "license": "MIT",
+  "main": "bin/index.js",
+  "bin": {
+    "tailwind-storybook": "node ./bin/index.js"
+  },
+  "scripts": {
+    "test": "npm run start /tailwind.config.js",
+    "start": "node bin/index.js /tailwind.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raulmelo/tailwind-storybook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raulmelo/tailwind-storybook/issues"
+  },
+  "homepage": "https://github.com/raulmelo/tailwind-storybook#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "emojic": "^1.1.16",
+    "handlebars": "^4.7.7",
+    "minimist": "^1.2.5",
+    "hbs": "^4.1.1",
+    "colors": "^1.4.0",
+    "tailwindcss": "^2.0.4"
+  }
+}

@@ -27,7 +27,7 @@ const NEWLINE = "\n";
 const EMPTYLINE = "";
 
 console.log(
-    chalk.blueBright(
+    chalk.redBright(
         boxen(
             [
                 `${data.name} / ${data.handle}`,
