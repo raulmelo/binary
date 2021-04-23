@@ -1,0 +1,21 @@
+{
+  "name": "binary",
+  "description": "binary test shortcode",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "name": "Raul Melo",
+      "email": "raulmelo.web@gmail.com",
+      "web": "outlinestudio.com"
+    }
+  ],
+  "main": "bin/index.js",
+  "binary": "bin/index.js",
+  "scripts": {
+    "test": "node bin/index.js"
+  },
+  "dependencies": {
+    "boxen": "^5.0.1",
+    "chalk": "^4.1.1"
+  }
+}
