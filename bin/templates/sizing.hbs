@@ -1,0 +1,239 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { copyClass } from './_tailwindstorybookUtils.js'
+import './_tailwindstorybook.css'
+
+<Meta title="Tailwind/Sizing" />
+
+{{#if width}} 
+# Width
+Utilities for setting the width of an element
+
+## Usage
+Control the font size of an element using the `width-{name}` utilities.
+
+```html
+  <div class="w-screen"></div>
+```
+
+export const TemplateWidth = () => {
+  const values = {{width}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--h">
+            <div class={`tailwindStorybook__sizing--label w-${item.class}`}></div>
+            <span>
+              <input onClick={ () => copyClass(`w-${item.class}`) } readOnly={true} id={`w-${item.class}`} defaultValue={`w-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Width">
+  {TemplateWidth.bind()}
+</Story>
+
+{{/if}}
+
+
+{{#if maxWidth}} 
+# Max-Width
+Utilities for setting the maximum width of an element
+
+## Usage
+Set the maximum width of an element using the max-w-{size} utilities.
+
+```html
+<div class="max-w-md mx-auto ...">
+  max-w-md
+</div>
+```
+
+export const TemplateMaxWidth = () => {
+  const values = {{maxWidth}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--h">
+            <div class={`tailwindStorybook__sizing--label w-full max-w-${item.class}`}></div>
+            <span>
+              <input onClick={ () => copyClass(`max-w-${item.class}`) } readOnly={true} id={`max-w-${item.class}`} defaultValue={`max-w-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Max width">
+  {TemplateMaxWidth.bind()}
+</Story>
+
+{{/if}}
+
+{{#if minWidth}} 
+# Min-Width
+Utilities for setting the minimum width of an element
+
+## Usage
+Set the minimum width of an element using the min-w-0 or min-w-full utilities.
+
+```html
+<div class="min-w-full ...">
+  min-w-full
+</div>
+```
+
+export const TemplateMinWidth = () => {
+  const values = {{minWidth}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--h">
+            <div class={`tailwindStorybook__sizing--label min-w-${item.class}`}></div>
+            <span>
+              <input onClick={ () => copyClass(`min-w-${item.class}`) } readOnly={true} id={`min-w-${item.class}`} defaultValue={`min-w-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Min width">
+  {TemplateMinWidth.bind()}
+</Story>
+
+{{/if}}
+
+{{#if height}} 
+# Height
+Utilities for setting the height of an element
+
+
+```html
+<div class="h-auto ...">h-auto</div>
+```
+
+export const TemplateHeight = () => {
+  const values = {{height}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--w">
+            <span>
+              <input onClick={ () => copyClass(`h-${item.class}`) } readOnly={true} id={`h-${item.class}`} defaultValue={`h-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+            <div class={`tailwindStorybook__sizing--label h-${item.class}`}></div>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Height">
+  {TemplateHeight.bind()}
+</Story>
+
+{{/if}}
+
+
+{{#if maxHeight}} 
+# Max-Height
+Utilities for setting the maximum height of an element
+
+
+```html
+<div class="max-h-full ...">
+  .max-h-full
+</div>
+```
+
+export const TemplateMaxHeight = () => {
+  const values = {{maxHeight}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--w">
+            <span>
+              <input onClick={ () => copyClass(`max-h-${item.class}`) } readOnly={true} id={`max-h-${item.class}`} defaultValue={`max-h-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+            <div class={`tailwindStorybook__sizing--label h-screen max-h-${item.class}`}></div>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Max Height">
+  {TemplateMaxHeight.bind()}
+</Story>
+
+{{/if}}
+
+{{#if minHeight}} 
+# Min-Height
+Utilities for setting the minimum height of an element
+
+
+```html
+<div class="min-h-full ...">
+  .min-h-full
+</div>
+```
+
+export const TemplateMinHeight = () => {
+  const values = {{minHeight}}
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--w">
+            <span>
+              <input onClick={ () => copyClass(`min-h-${item.class}`) } readOnly={true} id={`min-h-${item.class}`} defaultValue={`min-h-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+            <div class={`tailwindStorybook__sizing--label min-h-${item.class}`}></div>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Min Height">
+  {TemplateMinHeight.bind()}
+</Story>
+
+{{/if}}
+
+

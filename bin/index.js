@@ -5,6 +5,7 @@ const emojic = require("emojic");
 const args = (process.argv.slice(2));
 const fs = require("fs");
 const resolveConfig = require('tailwindcss/resolveConfig');
+const tailwindFunctions = require('./tailwind-functions');
 
 
 ////////////////////////////////
@@ -51,7 +52,7 @@ if (!fs.existsSync(dir)){
 ///////////////////////////////
 try {
     let fullConfigJSON = resolveConfig(tailwindConfig);
-    // tailwindFunctions.loader(fullConfigJSON);
+    tailwindFunctions.loader(fullConfigJSON);
     fullConfigJSON = JSON.stringify(fullConfigJSON, null, 2);
     fs.writeFileSync(dir + "/stories-tailwind.json", fullConfigJSON, { encoding: "utf-8"});
 } 

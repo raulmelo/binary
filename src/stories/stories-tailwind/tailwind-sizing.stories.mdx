@@ -1,0 +1,227 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { copyClass } from './_tailwindstorybookUtils.js'
+import './_tailwindstorybook.css'
+
+<Meta title="Tailwind/Sizing" />
+
+# Width
+Utilities for setting the width of an element
+
+## Usage
+Control the font size of an element using the `width-{name}` utilities.
+
+```html
+  <div class="w-screen"></div>
+```
+
+export const TemplateWidth = () => {
+  const values = [{"class":"88","value":"88px"},{"class":"100","value":"100px"},{"class":"auto","value":"auto"},{"class":"px","value":"1px"},{"class":"xs","value":"8px"},{"class":"sm","value":"16px"},{"class":"md","value":"24px"},{"class":"lg","value":"32px"},{"class":"xl","value":"40px"},{"class":"1/2","value":"50%"},{"class":"1/3","value":"33.333333%"},{"class":"2/3","value":"66.666667%"},{"class":"1/4","value":"25%"},{"class":"2/4","value":"50%"},{"class":"3/4","value":"75%"},{"class":"1/5","value":"20%"},{"class":"2/5","value":"40%"},{"class":"3/5","value":"60%"},{"class":"4/5","value":"80%"},{"class":"1/6","value":"16.666667%"},{"class":"2/6","value":"33.333333%"},{"class":"3/6","value":"50%"},{"class":"4/6","value":"66.666667%"},{"class":"5/6","value":"83.333333%"},{"class":"1/12","value":"8.333333%"},{"class":"2/12","value":"16.666667%"},{"class":"3/12","value":"25%"},{"class":"4/12","value":"33.333333%"},{"class":"5/12","value":"41.666667%"},{"class":"6/12","value":"50%"},{"class":"7/12","value":"58.333333%"},{"class":"8/12","value":"66.666667%"},{"class":"9/12","value":"75%"},{"class":"10/12","value":"83.333333%"},{"class":"11/12","value":"91.666667%"},{"class":"full","value":"100%"},{"class":"screen","value":"100vw"}]
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--h">
+            <div class={`tailwindStorybook__sizing--label w-${item.class}`}></div>
+            <span>
+              <input onClick={ () => copyClass(`w-${item.class}`) } readOnly={true} id={`w-${item.class}`} defaultValue={`w-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Width">
+  {TemplateWidth.bind()}
+</Story>
+
+
+
+# Max-Width
+Utilities for setting the maximum width of an element
+
+## Usage
+Set the maximum width of an element using the max-w-{size} utilities.
+
+```html
+<div class="max-w-md mx-auto ...">
+  max-w-md
+</div>
+```
+
+export const TemplateMaxWidth = () => {
+  const values = [{"class":"none","value":"none"},{"class":"xs","value":"20rem"},{"class":"sm","value":"24rem"},{"class":"md","value":"28rem"},{"class":"lg","value":"32rem"},{"class":"xl","value":"36rem"},{"class":"2xl","value":"42rem"},{"class":"3xl","value":"48rem"},{"class":"4xl","value":"56rem"},{"class":"5xl","value":"64rem"},{"class":"6xl","value":"72rem"},{"class":"full","value":"100%"},{"class":"screen-sm","value":"640px"},{"class":"screen-md","value":"768px"},{"class":"screen-lg","value":"1024px"},{"class":"screen-xl","value":"var(--content-size)"}]
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--h">
+            <div class={`tailwindStorybook__sizing--label w-full max-w-${item.class}`}></div>
+            <span>
+              <input onClick={ () => copyClass(`max-w-${item.class}`) } readOnly={true} id={`max-w-${item.class}`} defaultValue={`max-w-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Max width">
+  {TemplateMaxWidth.bind()}
+</Story>
+
+
+# Min-Width
+Utilities for setting the minimum width of an element
+
+## Usage
+Set the minimum width of an element using the min-w-0 or min-w-full utilities.
+
+```html
+<div class="min-w-full ...">
+  min-w-full
+</div>
+```
+
+export const TemplateMinWidth = () => {
+  const values = [{"class":"0","value":"0"},{"class":"50","value":"50%"},{"class":"full","value":"100%"}]
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--h">
+            <div class={`tailwindStorybook__sizing--label min-w-${item.class}`}></div>
+            <span>
+              <input onClick={ () => copyClass(`min-w-${item.class}`) } readOnly={true} id={`min-w-${item.class}`} defaultValue={`min-w-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Min width">
+  {TemplateMinWidth.bind()}
+</Story>
+
+
+# Height
+Utilities for setting the height of an element
+
+
+```html
+<div class="h-auto ...">h-auto</div>
+```
+
+export const TemplateHeight = () => {
+  const values = [{"class":"88","value":"88px"},{"class":"100","value":"100px"},{"class":"auto","value":"auto"},{"class":"px","value":"1px"},{"class":"xs","value":"8px"},{"class":"sm","value":"16px"},{"class":"md","value":"24px"},{"class":"lg","value":"32px"},{"class":"xl","value":"40px"},{"class":"full","value":"100%"},{"class":"screen","value":"100vh"}]
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--w">
+            <span>
+              <input onClick={ () => copyClass(`h-${item.class}`) } readOnly={true} id={`h-${item.class}`} defaultValue={`h-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+            <div class={`tailwindStorybook__sizing--label h-${item.class}`}></div>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Height">
+  {TemplateHeight.bind()}
+</Story>
+
+
+
+# Max-Height
+Utilities for setting the maximum height of an element
+
+
+```html
+<div class="max-h-full ...">
+  .max-h-full
+</div>
+```
+
+export const TemplateMaxHeight = () => {
+  const values = [{"class":"50","value":"50%"},{"class":"full","value":"100%"},{"class":"screen","value":"100vh"}]
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--w">
+            <span>
+              <input onClick={ () => copyClass(`max-h-${item.class}`) } readOnly={true} id={`max-h-${item.class}`} defaultValue={`max-h-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+            <div class={`tailwindStorybook__sizing--label h-screen max-h-${item.class}`}></div>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Max Height">
+  {TemplateMaxHeight.bind()}
+</Story>
+
+
+# Min-Height
+Utilities for setting the minimum height of an element
+
+
+```html
+<div class="min-h-full ...">
+  .min-h-full
+</div>
+```
+
+export const TemplateMinHeight = () => {
+  const values = [{"class":"0","value":"0"},{"class":"full","value":"100%"},{"class":"screen","value":"100vh"}]
+  return <div>
+    {values.map( (item, index) => {
+      return (
+      <div key={index}>
+        <div class="tailwindStorybook__sizing">
+          <div class="tailwindStorybook__sizing--w">
+            <span>
+              <input onClick={ () => copyClass(`min-h-${item.class}`) } readOnly={true} id={`min-h-${item.class}`} defaultValue={`min-h-${item.class}`} />
+              <small> value: {item.value}</small>
+            </span>
+            <div class={`tailwindStorybook__sizing--label min-h-${item.class}`}></div>
+          </div>
+        </div>
+      </div>
+      )
+    })}
+  </div>
+}
+
+<Story name="Min Height">
+  {TemplateMinHeight.bind()}
+</Story>
+
+
+

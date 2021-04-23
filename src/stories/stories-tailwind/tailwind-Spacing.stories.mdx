@@ -1,0 +1,163 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { copyClass } from './_tailwindstorybookUtils.js'
+import './_tailwindstorybook.css'
+import { useState } from 'react'
+
+<Meta title="Tailwind/Spacing" />
+
+export const TemplateSpacing = () => {
+  const values = [{"class":"88","value":"88px"},{"class":"100","value":"100px"},{"class":"px","value":"1px"},{"class":"xs","value":"8px"},{"class":"sm","value":"16px"},{"class":"md","value":"24px"},{"class":"lg","value":"32px"},{"class":"xl","value":"40px"}]
+  const spacing = {
+    padding: {
+      label: 'Padding',
+      className: 'p',
+      cssProperties: ['padding']
+    },
+    margin: {
+      label: 'Margin',
+      className: 'm',
+      cssProperties: ['margin']
+    },
+  }
+  const allVariants = [
+    { 
+      id: 'All',
+      className: '',
+      cssProperties: [' ']
+    },
+    { 
+      id: 'Top',
+      className: 't',
+      cssProperties: ['top']
+    },
+    { 
+      id: 'Bottom',
+      className: 'b',
+      cssProperties: ['bottom']
+    },
+    { 
+      id: 'Vertical',
+      className: 'y',
+      cssProperties: ['top', 'bottom']
+    },
+    { 
+      id: 'Right',
+      className: 'r',
+      cssProperties: ['rigth']
+    },
+    { 
+      id: 'Left',
+      className: 'l',
+      cssProperties: ['left']
+    },
+    { 
+      id: 'Horizontal',
+      className: 'x',
+      cssProperties: ['left', 'right']
+    },
+  ]
+  const [selected, setSelected] = useState(spacing.padding);
+  const [variants, setVariants] = useState([allVariants[0]])
+  function selectTabSpacing(value) {
+    setSelected(spacing[value])
+  }
+  function selectTabSpacingVariant(indexElement) { 
+    const selected = allVariants[indexElement]
+    const allId = variants.map( variant => variant.id )
+    if(allId.includes(selected.id)) { 
+      const removeVariantSelected = variants.filter( variant => variant.id !== selected.id)
+      setVariants(removeVariantSelected)
+      return;
+    }
+    setVariants([selected])
+  }
+  return  (
+    <div class="tailwindStorybook">
+      <div class="tailwindStorybook--buttons">
+          <button class={selected.className === 'm' ? 'active' : '' } onClick={ () => selectTabSpacing('margin')} >Margin</button>
+          <button class={selected.className === 'p' ? 'active' : '' } onClick={ () => selectTabSpacing('padding')} >Padding</button>
+      </div>
+      <div class="tailwindStorybook--buttons-variants">
+          {allVariants.map( (variant, index) => { 
+            return (
+              <button key={index} onClick={ () => setVariants([variant])} className={`${variants.map( item => item.id).includes(variant.id) ? 'active' : ' '}` } >
+                {variant.id}
+              </button>
+            )
+          } )}
+      </div>
+      <h1 class="font-bold">{selected.label}</h1>
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr>
+            <th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
+              <div class="pb-2 pr-2 border-b border-gray-200">Class</div>
+            </th>
+            <th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
+              <div class="pb-2 pl-2 border-b border-gray-200">Properties</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="align-baseline">
+          {values.map( item => { 
+            return variants.map( (variant, indexVariant) => { 
+              return (
+                <tr key={indexVariant}>
+                  <td class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap copyValue" >
+                    <span class="tailwindStorybook__list--label" title="Click copy class" alt="Click copy class" onClick={ () => copyClass(`__${selected.className}${variant.className}-${item.class}`) }>
+                      <input readOnly={true} id={`__${selected.className}${variant.className}-${item.class}`} defaultValue={`.${selected.className}${variant.className}-${item.class}`} />
+                    </span>
+                  </td>
+                  <td class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+                    {variant.cssProperties.map( (propertie, indexProperties) => {
+                      return (
+                        <span class="block" key={indexProperties}>
+                          {selected.cssProperties}{propertie.length > 1 ? '-' + propertie : ''}: {item.value}
+                        </span>
+                      )
+                    } )}
+                  </td>
+                </tr>
+              )
+            })
+          })
+          }
+        </tbody>
+      </table>
+      <style>
+        {`
+        .tailwindStorybook--buttons button,
+        .tailwindStorybook--buttons-variants button {
+            border: 1px solid #737373;
+            color: #737373;
+            background-color: transparent;
+            padding: 5px 8px;
+            border-radius: 6px;
+            margin: 0 2px 8px 2px;
+        }
+        .tailwindStorybook--buttons button { 
+            font-size: 18px;
+            font-weight: bold
+        }
+        .tailwindStorybook--buttons-variants button { 
+            font-size: 14px;
+        }
+        .tailwindStorybook--buttons button.active,
+        .tailwindStorybook--buttons-variants button.active {
+          background: #f54786;
+          color: white;
+        }
+          .tailwindStorybook table td {
+            user-select: all;
+          }
+          .tailwindStorybook table td::selection {
+            background: #f54786;
+            color: white;
+          }
+        `}
+      </style>
+    </div>
+  )
+}
+
+<TemplateSpacing />
