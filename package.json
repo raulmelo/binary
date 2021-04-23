@@ -19,6 +19,7 @@
   "dependencies": {
     "boxen": "^5.0.1",
     "chalk": "^4.1.1",
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "emojic": "^1.1.16"
   }
 }
