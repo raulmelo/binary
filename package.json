@@ -10,7 +10,9 @@
     }
   ],
   "main": "bin/index.js",
-  "binary": "node bin/index.js",
+  "bin": {
+    "tariq": "bin/index.js"
+  },
   "scripts": {
     "test": "node bin/index.js"
   },
