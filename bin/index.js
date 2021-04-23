@@ -1,9 +1,33 @@
 #!/usr/bin/env node
 
-var colors = require('colors');
+const colors = require("colors");
+const emojic = require("emojic");
+const args = (process.argv.slice(2));
+const fs = require("fs");
 
-console.log('hello'.green); // outputs green text
-console.log('i like cake and pies'.underline.red) // outputs red underlined text
-console.log('inverse the color'.inverse); // inverses the color
-console.log('OMG Rainbows!'.rainbow); // rainbow
-console.log('Run the trap'.trap); // Drops the bass
+
+var tailwindConfig;
+try {
+  if (fs.existsSync(process.cwd() + "/" + args[0])) {
+    console.log(
+      colors.bold.bgBlue.black(
+        emojic.whiteCheckMark + "found tailwind.config.js"
+      )
+    );
+    tailwindConfig = require(process.cwd() + "/" + args[0]);
+  } else if (fs.existsSync(process.cwd() + "/tailwind.config.js")) {
+    console.log(
+      colors.bold.bgBlue.black(
+        emojic.whiteCheckMark + " found tailwind.config.js default"
+      )
+    );
+    tailwindConfig = require(process.cwd() + "/tailwind.config.js");
+  } else {
+    console.log(
+      colors.bold.bgYellow.black(emojic.x + " Not found tailwind.config.js")
+    );
+  }
+} catch (err) {
+  console.error(err);
+  process.exit();
+}
