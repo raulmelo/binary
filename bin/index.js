@@ -2,6 +2,7 @@
 
 const chalk = require("chalk");
 const boxen = require("boxen");
+const { redBright } = require("chalk");
 
 // Text + chalk definitions
 const data = {
@@ -43,6 +44,7 @@ console.log(
                 `${data.labelCard} ${data.npx}`,
             ].join(NEWLINE),
             {
+                backgroundColor: redBright,
                 padding: 1,
                 margin: 1,
                 borderStyle: "round",
