@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "node bin/index.js",
-    "postinstall": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css",
+    "postinstall": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css"
   },
   "dependencies": {
     "boxen": "^5.0.1",
