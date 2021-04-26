@@ -1,11 +1,17 @@
 #!/usr/bin/env node
 
+const process = require('process');
 const colors = require("colors");
 const emojic = require("emojic");
 const args = (process.argv.slice(2));
 const fs = require("fs");
 const resolveConfig = require('tailwindcss/resolveConfig');
+const tailwindcss = require('tailwindcss');
 const tailwindFunctions = require('./tailwind-functions');
+const postcss = require('postcss')
+const tailwind = require('tailwindcss/lib/processTailwindFeatures');
+
+
 
 
 ////////////////////////////////
@@ -56,3 +62,4 @@ catch (error) {
     console.error(error);
     console.log(colors.bold.bgBlue.black(emojic.x + ' Ops! error'));
 }
+

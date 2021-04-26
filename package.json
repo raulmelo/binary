@@ -11,11 +11,11 @@
   ],
   "main": "bin/index.js",
   "bin": {
-    "tariq": "bin/index.js && npm run tailin"
+    "tariq": "bin/index.js"
   },
   "scripts": {
-    "test": "node bin/index.js && npm rum postinstall",
-    "tailin": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css"
+    "test": "node bin/index.js",
+    "postinstall": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css"
   },
   "dependencies": {
     "autoprefixer": "^10.2.5",
