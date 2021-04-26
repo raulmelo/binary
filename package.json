@@ -11,11 +11,11 @@
   ],
   "main": "bin/index.js",
   "bin": {
-    "tariq": "bin/index.js && yarn compile-tailwind" 
+    "tariq": "bin/index.js" 
   },
   "scripts": {
     "test": "node bin/index.js",
-    "compile-tailwind": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css" 
+    "postinstall": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css",
   },
   "dependencies": {
     "boxen": "^5.0.1",
