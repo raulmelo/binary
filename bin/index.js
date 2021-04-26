@@ -14,11 +14,7 @@ const tailwindFunctions = require('./tailwind-functions');
 var tailwindConfig;
 try {
   if (fs.existsSync(process.cwd() + "/" + args[0])) {
-    console.log(
-      colors.bold.bgBlue.black(
-        emojic.whiteCheckMark + "found tailwind.config.js"
-      )
-    );
+    console.log(colors.bold.bgBlue.black(emojic.whiteCheckMark + "found tailwind.config.js"));
     tailwindConfig = require(process.cwd() + "/" + args[0]);
   } else if (fs.existsSync(process.cwd() + "/tailwind.config.js")) {
     console.log(

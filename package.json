@@ -11,18 +11,19 @@
   ],
   "main": "bin/index.js",
   "bin": {
-    "tariq": "bin/index.js" 
+    "tariq": "bin/index.js"
   },
   "scripts": {
-    "test": "node bin/index.js",
+    "test": "node bin/index.js && npm rum postinstall",
     "postinstall": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css"
   },
   "dependencies": {
+    "autoprefixer": "^10.2.5",
     "boxen": "^5.0.1",
     "chalk": "^4.1.1",
     "colors": "^1.4.0",
     "emojic": "^1.1.16",
-    "tailwindcss": "^2.0.4",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "tailwindcss": "^2.0.4"
   }
 }
