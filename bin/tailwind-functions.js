@@ -31,5 +31,12 @@ function generatorTemplateHbs(property, configGroup) {
   const template = Handlebars.compile(templateHandlebars, { noEscape: true });
   const htmlString = template(configGroup);
   var dir = process.cwd() + '/src/stories/stories-tailwind';
-  fs.writeFileSync(dir + "/tailwind-" + property+ ".stories.mdx", htmlString, { encoding: "utf-8"});
+  try {
+    console.log(colors.bold.bgBlue.black(emojic.whiteCheckMark + "File created"));
+    console.log(colors.bold.bgBlue.black(emojic.whiteCheckMark + property));
+    console.log(colors.bold.bgBlue.black(emojic.whiteCheckMark + dir));
+    fs.writeFileSync(dir + "/tailwind-" + property+ ".stories.mdx", htmlString, { encoding: "utf-8"});
+  } catch (error) {
+    
+  }
 }

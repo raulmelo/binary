@@ -6,11 +6,12 @@
   "license": "MIT",
   "main": "bin/index.js",
   "bin": {
-    "tailwind-storybook": "node ./bin/index.js"
+    "tailwind-storybook": "node ./bin/index.js && yarn compile-tailwind"
   },
   "scripts": {
     "test": "npm run start /tailwind.config.js",
-    "start": "node bin/index.js /tailwind.config.js"
+    "start": "node bin/index.js /tailwind.config.js",
+    "compile-tailwind": "yarn tailwindcss build node_modules/tailwindcss/tailwind.css -c ./tailwind.config.js -o src/tailwind.css" 
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,8 @@
   "devDependencies": {
     "emojic": "^1.1.16",
     "handlebars": "^4.7.7",
-    "minimist": "^1.2.5",
     "hbs": "^4.1.1",
+    "minimist": "^1.2.5",
     "colors": "^1.4.0",
     "tailwindcss": "^2.0.4"
   }
