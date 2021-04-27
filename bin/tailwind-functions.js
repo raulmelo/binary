@@ -2,6 +2,8 @@ const Handlebars = require("handlebars");
 const fs = require("fs");
 const path = require("path");
 const UtilsConvert = require('./utils/convert');
+const emojic = require("emojic");
+const boxen = require('boxen');
 
 const templatesCreated = {
   'Typography': ['fontSize', 'fontWeight', 'fontFamily', 'fontStyle', 'letterSpacing', 'lineHeight'],
@@ -11,6 +13,9 @@ const templatesCreated = {
 
 exports.loader = function(configTailwind) { 
   const templatesKeys = Object.keys(templatesCreated);
+  console.log(emojic.whiteCheckMark + "File created");
+  console.log(boxen(
+  `${templatesKeys.map( item => ' ' + item  )}` , { padding: 1}));
   templatesKeys.forEach( group  => { 
     const _group = templatesCreated[group];
     const hasValue = {}
@@ -32,11 +37,8 @@ function generatorTemplateHbs(property, configGroup) {
   const htmlString = template(configGroup);
   var dir = process.cwd() + '/src/stories/stories-tailwind';
   try {
-    console.log(colors.bold.bgBlue.black(emojic.whiteCheckMark + "File created"));
-    console.log(colors.bold.bgBlue.black(emojic.whiteCheckMark + property));
-    console.log(colors.bold.bgBlue.black(emojic.whiteCheckMark + dir));
     fs.writeFileSync(dir + "/tailwind-" + property+ ".stories.mdx", htmlString, { encoding: "utf-8"});
   } catch (error) {
-    
+    console.log(error)
   }
 }

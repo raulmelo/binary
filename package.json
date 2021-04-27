@@ -11,7 +11,7 @@
   ],
   "main": "bin/index.js",
   "bin": {
-    "tariq": "bin/index.js"
+    "index": "bin/index.js"
   },
   "scripts": {
     "test": "node bin/index.js"

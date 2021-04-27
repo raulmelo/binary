@@ -6,11 +6,7 @@ const emojic = require("emojic");
 const args = (process.argv.slice(2));
 const fs = require("fs");
 const resolveConfig = require('tailwindcss/resolveConfig');
-const tailwindcss = require('tailwindcss');
 const tailwindFunctions = require('./tailwind-functions');
-const postcss = require('postcss')
-const tailwind = require('tailwindcss/lib/processTailwindFeatures');
-
 
 
 
